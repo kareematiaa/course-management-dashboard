@@ -53,7 +53,7 @@ A responsive Angular web application for managing online courses, built with Ang
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/kareematiaa/course-management-dashboard.git
 cd course-management-dashboard
 ```
 
