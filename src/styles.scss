@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+// Angular Material Theme
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+// Reset Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Body Styles
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f7fa;
+}
+
+// Snackbar (Toast) Styles
+.snackbar-success {
+  background: #4caf50 !important;
+  color: white !important;
+}
+
+.snackbar-error {
+  background: #f44336 !important;
+  color: white !important;
+}
+
+.snackbar-info {
+  background: #2196f3 !important;
+  color: white !important;
+}
+
+// Utility Classes
+.text-center {
+  text-align: center;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

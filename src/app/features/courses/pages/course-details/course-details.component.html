@@ -1,0 +1,68 @@
+<div class="course-details-container">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <!-- Course Details -->
+  <ng-container *ngIf="!isLoading && course">
+    <div class="details-header">
+      <button mat-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back</button>
+      <button mat-raised-button color="primary" [routerLink]="['/courses', course.id, 'edit']">
+        <mat-icon>edit</mat-icon> Edit Course
+      </button>
+    </div>
+
+    <mat-card class="details-card">
+      <mat-card-header>
+        <mat-card-title>{{ course.courseName }}</mat-card-title>
+        <mat-card-subtitle>
+          <span class="status-badge" [class]="'status-' + getStatusColor(course.status)">
+            {{ course.status }}
+          </span>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="label">Instructor</span>
+            <span class="value">{{ course.instructorName }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Category</span>
+            <span class="value category-badge">{{ course.category }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Duration</span>
+            <span class="value">{{ course.duration }} hours</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Price</span>
+            <span class="value">{{ course.price | currency }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Created Date</span>
+            <span class="value">{{ course.createdDate | date: 'medium' }}</span>
+          </div>
+
+          <div class="detail-item full-width">
+            <span class="label">Description</span>
+            <span class="value">{{ course.description || 'No description provided' }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+
+  <!-- Not Found State -->
+  <div *ngIf="!isLoading && !course" class="not-found">
+    <mat-icon>error_outline</mat-icon>
+    <h3>Course not found</h3>
+    <button mat-raised-button color="primary" (click)="goBack()">Go Back</button>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "courseName": "Angular Fundamentals",
+      "instructorName": "Ahmed Ali",
+      "category": "Frontend",
+      "duration": 20,
+      "price": 1500,
+      "status": "Active",
+      "description": "Complete Angular course for beginners covering components, services, routing, and forms",
+      "createdDate": "2026-06-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "courseName": "React Advanced Patterns",
+      "instructorName": "Sarah Johnson",
+      "category": "Frontend",
+      "duration": 25,
+      "price": 1800,
+      "status": "Active",
+      "description": "Advanced React concepts including hooks, context API, and performance optimization",
+      "createdDate": "2026-06-15T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "courseName": "Node.js Microservices",
+      "instructorName": "Michael Chen",
+      "category": "Backend",
+      "duration": 30,
+      "price": 2000,
+      "status": "Draft",
+      "description": "Building scalable microservices with Node.js, Express, and Docker",
+      "createdDate": "2026-06-20T00:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "courseName": "UI/UX Design Fundamentals",
+      "instructorName": "Emma Davis",
+      "category": "Design",
+      "duration": 15,
+      "price": 1200,
+      "status": "Archived",
+      "description": "Principles of user interface and user experience design",
+      "createdDate": "2026-05-15T00:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "courseName": "DevOps with Kubernetes",
+      "instructorName": "James Wilson",
+      "category": "DevOps",
+      "duration": 35,
+      "price": 2200,
+      "status": "Active",
+      "description": "Complete guide to DevOps practices and Kubernetes orchestration",
+      "createdDate": "2026-06-25T00:00:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

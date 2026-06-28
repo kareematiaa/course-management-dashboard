@@ -1,59 +1,154 @@
-# CourseManagementDashboard
+# 📚 Course Management Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.4.
+A responsive Angular web application for managing online courses, built with Angular 22 and Angular Material.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🛠 Technologies Used
+
+- **Angular 22** — standalone components architecture
+- **Angular Material** — UI component library
+- **TypeScript** — strongly typed language
+- **RxJS** — reactive programming for HTTP and state management
+- **JSON Server** — mock REST API
+- **SCSS** — component styling
+
+---
+
+## ✅ Features Implemented
+
+- **Course List** — paginated table with sorting, search by name, and filter by status
+- **Add Course** — reactive form with full validation
+- **Edit Course** — pre-filled form with existing course data
+- **Course Details** — full course info view
+- **Delete Course** — confirmation modal before deletion
+- **Notifications** — success/error snackbar messages
+- **Loading States** — spinner during data fetch
+- **Responsive Design** — works on desktop and mobile
+
+---
+
+## 🚀 How to Run the Project
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd course-management-dashboard
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the Mock API (JSON Server) — in a separate terminal
+
+```bash
+npm run mock-api
+```
+
+> This starts JSON Server on `http://localhost:3000`
+
+### 4. Start the Angular app — in another terminal
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+> Open your browser at `http://localhost:4200`
 
-## Code scaffolding
+> ⚠️ Both terminals must be running at the same time.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
+## 🗄 Mock API Explanation
+
+This project uses **JSON Server** as a mock REST API to simulate a backend.
+
+- The data file is located at `src/db.json`
+- JSON Server watches this file and exposes a full REST API automatically
+
+### Available endpoints:
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/courses` | Get all courses |
+| GET | `/courses/:id` | Get course by ID |
+| POST | `/courses` | Create new course |
+| PUT | `/courses/:id` | Update course |
+| DELETE | `/courses/:id` | Delete course |
+
+### Sample data includes 5 pre-loaded courses:
+- Angular Fundamentals
+- React Advanced Patterns
+- Node.js Microservices
+- UI/UX Design Fundamentals
+- DevOps with Kubernetes
+
+---
+
+## ⚙️ Add mock-api script to package.json
+
+Make sure your `package.json` has this script:
+
+```json
+"scripts": {
+  "mock-api": "json-server src/db.json --port 3000"
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── core/
+│   │   └── services/
+│   │       ├── loading.service.ts
+│   │       └── notification.service.ts
+│   ├── features/
+│   │   └── courses/
+│   │       ├── constants/
+│   │       ├── models/
+│   │       ├── pages/
+│   │       │   ├── course-list/
+│   │       │   ├── course-form/
+│   │       │   └── course-details/
+│   │       ├── services/
+│   │       └── courses.routes.ts
+│   ├── shared/
+│   │   └── components/
+│   │       ├── confirmation-modal/
+│   │       └── loading-spinner/
+│   ├── app.component.ts
+│   ├── app.config.ts
+│   └── app.routes.ts
+├── environments/
+│   └── environment.ts
+└── db.json
 ```
 
-## Building
+---
 
-To build the project run:
+## 💡 Assumptions
 
-```bash
-ng build
-```
+- Course IDs are auto-incremented numeric strings (e.g. "1", "2", "3")
+- `createdDate` is automatically set to the current date/time when a course is created
+- Status defaults to "Draft" when creating a new course
+- Description is optional (max 500 characters)
+- Duration must be at least 1 hour
+- Price must be 0 or greater
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🎁 Bonus Features
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Search + Filter combined** — search by name and filter by status simultaneously
+- **Confirmation modal** — prevents accidental deletion
+- **Form validation** — real-time error messages with min/max rules
+- **Reactive state management** — `BehaviorSubject` caches courses and syncs across components
+- **Standalone Angular architecture** — uses modern Angular 17+ standalone components with no NgModules

@@ -1,0 +1,103 @@
+<div class="course-form-container">
+  <!-- Form Header -->
+  <div class="form-header">
+    <h2>{{ isEditMode ? 'Edit Course' : 'Add New Course' }}</h2>
+    <button mat-icon-button (click)="onCancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- Form -->
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <!-- Course Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Course Name</mat-label>
+        <input matInput formControlName="courseName" placeholder="Enter course name" />
+        <mat-error *ngIf="isFieldInvalid('courseName')">
+          {{ getErrorMessage('courseName') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Instructor Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Instructor Name</mat-label>
+        <input matInput formControlName="instructorName" placeholder="Enter instructor name" />
+        <mat-error *ngIf="isFieldInvalid('instructorName')">
+          {{ getErrorMessage('instructorName') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Category -->
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="isFieldInvalid('category')">
+          {{ getErrorMessage('category') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Duration -->
+      <mat-form-field appearance="outline">
+        <mat-label>Duration (Hours)</mat-label>
+        <input matInput type="number" formControlName="duration" min="1" />
+        <mat-error *ngIf="isFieldInvalid('duration')">
+          {{ getErrorMessage('duration') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Price -->
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" formControlName="price" min="0" />
+        <span matPrefix>$&nbsp;</span>
+        <mat-error *ngIf="isFieldInvalid('price')">
+          {{ getErrorMessage('price') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Status -->
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let status of statuses" [value]="status">
+            {{ status }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="isFieldInvalid('status')">
+          {{ getErrorMessage('status') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Description -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          formControlName="description"
+          rows="4"
+          placeholder="Enter course description (optional)"
+        ></textarea>
+        <mat-hint align="end">
+          {{ courseForm.get('description')?.value?.length || 0 }}/500
+        </mat-hint>
+        <mat-error *ngIf="isFieldInvalid('description')">
+          {{ getErrorMessage('description') }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button mat-button type="button" (click)="onCancel()">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
+        <mat-icon>{{ isEditMode ? 'update' : 'add' }}</mat-icon>
+        {{ isEditMode ? 'Update Course' : 'Create Course' }}
+      </button>
+    </div>
+  </form>
+</div>
