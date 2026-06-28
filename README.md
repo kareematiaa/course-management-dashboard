@@ -28,6 +28,26 @@ A responsive Angular web application for managing online courses, built with Ang
 
 ---
 
+## 📸 Screenshots
+
+### Course List
+
+![Course List](src/assets/screenshots/course-list.png)
+
+### Add Course
+
+![Add Course](src/assets/screenshots/course-form.png)
+
+### Course Details
+
+![Course Details](src/assets/screenshots/course-details.png)
+
+### Delete Confirmation
+
+![Delete Modal](src/assets/screenshots/delete-modal.png)
+
+---
+
 ## 🚀 How to Run the Project
 
 ### 1. Clone the repository
@@ -72,15 +92,16 @@ This project uses **JSON Server** as a mock REST API to simulate a backend.
 
 ### Available endpoints:
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/courses` | Get all courses |
-| GET | `/courses/:id` | Get course by ID |
-| POST | `/courses` | Create new course |
-| PUT | `/courses/:id` | Update course |
-| DELETE | `/courses/:id` | Delete course |
+| Method | Endpoint       | Description       |
+| ------ | -------------- | ----------------- |
+| GET    | `/courses`     | Get all courses   |
+| GET    | `/courses/:id` | Get course by ID  |
+| POST   | `/courses`     | Create new course |
+| PUT    | `/courses/:id` | Update course     |
+| DELETE | `/courses/:id` | Delete course     |
 
 ### Sample data includes 5 pre-loaded courses:
+
 - Angular Fundamentals
 - React Advanced Patterns
 - Node.js Microservices
@@ -152,3 +173,11 @@ src/
 - **Form validation** — real-time error messages with min/max rules
 - **Reactive state management** — `BehaviorSubject` caches courses and syncs across components
 - **Standalone Angular architecture** — uses modern Angular 17+ standalone components with no NgModules
+
+## 🌐 Live Demo
+
+https://course-management-dashboard-mauve.vercel.app/courses
+
+> **Note:** The live demo is for UI preview only.
+> To see full functionality with data, please run the project locally
+> following the instructions above.
